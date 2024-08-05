@@ -1,0 +1,37 @@
+@localhost = localhost:7071/api
+
+
+### Get sessions
+GET http://{{localhost}}/sessions
+
+
+### Get session
+GET http://{{localhost}}/session/7c4a366a-04da-4252-b8b1-8229a06e0c84
+
+
+### Insert session
+POST http://{{localhost}}/session
+Content-Type: application/json
+
+{
+    "id": "{{$guid}}",
+    "title": "Session4",
+    "createdOn": "2024-01-01T00:00:00"
+}
+
+### Insert chat message
+POST http://{{localhost}}/message
+Content-Type: application/json
+
+{
+    "id": "{{$guid}}",
+    "sessionId": "2445c2ef-16d9-48f7-8867-b0549ce1f2cc",
+    "timestamp": "2024-01-01T00:00:00",
+    "content": "This is the amazing content 4",
+    "userId": "user1000",
+    "userName": "Frank Rizo",
+    "MessageRole": 0
+}
+
+### Get session messages
+GET http://{{localhost}}/session/7c4a366a-04da-4252-b8b1-8229a06e0c84/messages
